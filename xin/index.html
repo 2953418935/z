@@ -58,7 +58,7 @@
 				r = 23
 			var nt = setInterval(function() {
 				n++
-				$(".year").html(n)
+				$(".year").html(" ")
 				var yt = setInterval(function() {
 					y++
 					$(".month").html(y)
@@ -69,7 +69,7 @@
 						y = 0
 					}
 					if (n > 2020) {
-						$(".year").html(" ")
+						
 						$(".month").html("07")
 						clearInterval(yt)
 						$(".data").click(function() {
