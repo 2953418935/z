@@ -1,0 +1,40 @@
+<div class="night">
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+	<div class="shooting_star"></div>
+</div>
+<audio loop="loop" preload="atuo" src="../img/lxy.mp3">
+</audio>
+<span id="lxybtn">下一页</span>
+<script>
+	$(function(){
+		$("#lxybtn").hide()
+		setTimeout(function(){
+			$("#lxybtn").fadeIn(500)
+		},3000)
+		$("#lxybtn").click(function() {
+			$(this).hide()
+			$("#lxy").attr("href", "")
+			$("#dg").attr("href", "css/style.css")
+			$("body").empty().load("html/dg.html")
+			
+		})
+	})
+</script>

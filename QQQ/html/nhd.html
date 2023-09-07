@@ -1,0 +1,97 @@
+<div id="zp">
+	<img src="img/aaa.jpg" id="img" />
+</div>
+
+<audio autoplay="true" loop="loop">
+	<source src="img/happy.mp3">
+</audio>
+<div class="container">
+	<div class="textContainer">
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+
+		</div>
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+		</div>
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+		</div>
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+		</div>
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+		</div>
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+		</div>
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+		</div>
+		<div class="subContainer">
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+			<div class="text">生日快乐</div>
+		</div>
+	</div>
+</div>
+<span id="nhdbtn">下一页</span>
+<script>
+	gsap.set(".subContainer", { x: 1800 });
+	
+	const tl = gsap.timeline();
+	
+	tl.to(".subContainer", {
+	  x: -1600,
+	  duration: 25,
+	  stagger: 0.7,
+	  repeat: -1,
+	  ease: "none"
+	});
+</script>
+<script>
+	$(function(){
+		$("#nhdbtn").hide()
+		$("#img").animate({
+			width:"100%",
+			opacity:1
+		},3000)
+		$("#img").animate({
+			height:"100%"
+		},3000)
+		setTimeout(function(){
+			$("#nhdbtn").fadeIn(500)
+		},5000)
+		$("#nhdbtn").click(function() {
+			$(this).hide()
+			$("#nhd").attr("href", "")
+			$("#card").attr("href", "css/card.css")
+			$("body").empty().load("html/card.html")
+		})
+	})
+</script>
+
