@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/css-doodle.min.js"></script>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script src="js/gsap.min.js"></script>
+		<link href="" rel="stylesheet" id="lxy"/>
+		<link href="" rel="stylesheet" id="card"  />
+		<link href="" rel="stylesheet" id="dg" />
+		<link href="css/index.css" rel="stylesheet" id="index" />
+		<link href="" rel="stylesheet" id="nhd" />
+		<css-doodle use="var(--rule)"></css-doodle>
+	</head>
+	<body>
+		<div class="on">进入</div>
+		<audio autoplay="true" loop="loop">
+			<source src="img/birty.mp3">
+		</audio>
+		<div id="tsparticles"></div>
+		<p class="data">
+			<span class="year">2000</span>-
+			<span class="month">07</span>-
+			<span class="day">23</span>
+		</p>
+		<div class="text">
+			<span></span>
+			<span>|</span>
+		</div>
+	</body>
+</html>
+<script>
+	$(function() {
+		var str = "农历七月二十三<br />每一年的特殊的日子<br />精彩才刚刚开始…"
+		$(".on").click(function() {
+			$(this).fadeOut(400)
+			$("body").fadeOut(4500, function() {
+				$(".on").prevAll().remove()
+				$(".data").fadeIn(400)
+				$("#tsparticles").animate({
+					opacity: 1
+				}, 400)
+				$("body").attr("style", "")
+				dateChange()
+			}).css({
+				transform: "scale(10)",
+				transition: "4s"
+			})
+		})
+
+		function dateChange() {
+			$(".text").show()
+var n=2000
+var y=7
+var r=23
+			var nt = setInterval(function() {
+				n++
+				$(".year").html(n)
+				var yt = setInterval(function() {
+					y++
+					$(".month").html(y)
+					if (y < 10) {
+						$(".month").html("0" + y)
+					}
+					if (y > 11) {
+						y = 0
+					}
+					if (n > 2022) {
+						
+						$(".month").html("07")
+						clearInterval(yt)
+						$(".data").click(function() {
+							change()
+							$(this).hide()
+
+						})
+					}
+				}, 100)
+				var rt = setInterval(function() {
+					r++
+					$(".day").html(r)
+					if (r < 10) {
+						$(".day").html("0" + r)
+					}
+					if (r > 30) {
+						r = 0
+					}
+					if (n > 2022) {
+						$(".day").html("23")
+						clearInterval(rt)
+					}
+				}, 10)
+				if (n > 2022) {
+					clearInterval(nt)
+				}
+			}, 200)
+		}
+
+		function change() {
+			var html = ""
+			var a = 0
+			var t = setInterval(function() {
+				a++
+				if (a > str.length) {
+					clearInterval(t)
+					$(".text").click(function() {
+						$(this).hide()
+						$("#lxy").attr("href", "css/lxy.css")
+						$("#index").attr("href", "")
+						$("body").load("html/lxy.html")
+					})
+				}
+				html = str.substring(0, a)
+				$(".text span:eq(0)").html("").html(html)
+			}, 200)
+		}
+		
+	})
+</script>
